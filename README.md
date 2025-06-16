@@ -1,13 +1,14 @@
 # My Reader
 
-This project is a cross-platform desktop application built with Electron. It reads text from TXT, PDF, and DOCX files aloud using the system text-to-speech voices.
+This project is now a cross-platform desktop application written in Python. It reads text from TXT, PDF and DOCX files aloud using the system text‑to‑speech voices provided by `pyttsx3`.
 
 ## Features
 
-- Open TXT, PDF, or DOCX files
+- Open TXT, PDF or DOCX files
 - Choose among installed system voices
 - Play and stop playback
 - Adjustable reading speed
+- Highlight of currently spoken text
 - Dark themed interface
 
 ## Development
@@ -15,12 +16,14 @@ This project is a cross-platform desktop application built with Electron. It rea
 Install dependencies and start the app:
 
 ```bash
-npm install
-npm start
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+pip install -r requirements.txt
+python main.py
 ```
 
-Use `electron-builder` to package a portable build:
+Package a portable build with `PyInstaller`:
 
 ```bash
-npx electron-builder --dir
+pyinstaller --onefile main.py
 ```
